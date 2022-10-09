@@ -1,8 +1,7 @@
 import requests
 
 # url = 'http://localhost:9696/predict'
-url = 'https://churn-service-i2gw4npszq-uw.a.run.app'
-
+url = 'https://churn-service-fastapi-7bb3esgl5a-uc.a.run.app/predict'
 
 customer_id = 'xyz-123'
 customer = {
@@ -31,7 +30,7 @@ response = requests.post(url, headers={'Content-Type': 'application/json'}, json
 
 print(response)
 
-# if response['churn'] == True:
-#     print('sending promo email to %s' % customer_id)
-# else:
-#     print('not sending promo email to %s' % customer_id)
+if response['churn'] == True:
+    print('sending promo email to %s' % customer_id)
+else:
+    print('not sending promo email to %s' % customer_id)
